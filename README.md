@@ -76,6 +76,19 @@ cd la-obsolescencia-tecnol-gica
 ```bash
 git checkout fabian
 ```
+
+```bash
+pnpm add tw-animate-css
+npm install tw-animate-css
+npm install tailwindcss-animate
+plugins: [require("tailwindcss-animate")]
+
+```
+
+```bash
+@import "tw-animate-css";
+```
+
 ```bash
 pnpm install
 ```
