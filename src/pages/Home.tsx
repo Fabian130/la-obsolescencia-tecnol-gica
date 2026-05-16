@@ -4,6 +4,7 @@ import PublicidadChart from "@/components/charts/PublicidadChart";
 import ConsumoChart from "@/components/charts/ConsumoChart";
 import TransicionChart from "@/components/charts/TransicionChart";
 import DescargaPDF from "@/components/DescargaPDF";
+import ContadorHero from "@/components/ContadorHero";
 
 /* ── Intersection Observer hook para animaciones al hacer scroll ── */
 function useInView(threshold = 0.15) {
@@ -111,7 +112,7 @@ export default function Home() {
     setMenuOpen(false);
   };
 
-  const navItems = [
+  const navItems: Array<{ id: string; label: string; highlight?: boolean }> = [
     { id: "problema", label: "El problema" },
     { id: "falla", label: "Falla de mercado" },
     { id: "causas", label: "Causas" },
@@ -299,6 +300,8 @@ export default function Home() {
           >
             {icons.arrow} Explorar el análisis
           </button>
+
+          <ContadorHero />
         </div>
       </header>
 

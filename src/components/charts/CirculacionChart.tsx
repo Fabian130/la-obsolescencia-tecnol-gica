@@ -141,12 +141,17 @@ export default function CirculacionChart() {
 
   useEffect(() => {
     if (!containerRef.current) return;
+    const container = containerRef.current;
     const ro = new ResizeObserver(entries => {
       const w = entries[0].contentRect.width;
       if (w > 0) draw(w);
     });
-    ro.observe(containerRef.current);
-    draw(containerRef.current.clientWidth || 500);
+    ro.observe(container);
+    // Use rAF to ensure DOM has laid out before measuring
+    requestAnimationFrame(() => {
+      const w = container.getBoundingClientRect().width || container.clientWidth || 600;
+      if (w > 0) draw(w);
+    });
     return () => ro.disconnect();
   }, [draw]);
 
